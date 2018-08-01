@@ -1,7 +1,5 @@
 <?php
-
 namespace Zls\Git;
-
 /**
  * Zls
  * @author        影浅
@@ -12,11 +10,9 @@ namespace Zls\Git;
  * @updatetime    2017-07-22 14:00
  */
 use Z;
-
 class Main
 {
     private static $CONFIG = [];
-
     public function __construct()
     {
         self::$CONFIG = [
@@ -29,7 +25,6 @@ class Main
             ],
         ];
     }
-
     /**
      * @return array
      */
@@ -37,13 +32,10 @@ class Main
     {
         return self::$CONFIG;
     }
-
-
     public function setConfig(array $config)
     {
         self::$CONFIG = array_merge(self::$CONFIG, $config);
     }
-
     /**
      * @param null $clientIp
      */
@@ -67,7 +59,6 @@ class Main
             $this->view();
         }
     }
-
     public function ipInNetworknetwork($originIp, $network)
     {
         $s = explode('/', $network);
@@ -81,10 +72,8 @@ class Main
         if ($ip >= $network_start && $ip <= $network_end) {
             return true;
         }
-
         return false;
     }
-
     private function view()
     {
         echo <<<EC
@@ -110,7 +99,6 @@ EC;
 </html>
 EC;
     }
-
     private function commit($commitId)
     {
         $dir = z::realPath(z::arrayGet(self::$CONFIG, 'path'));
@@ -126,7 +114,6 @@ EC;
 </div>
 EC;
     }
-
     private function lists()
     {
         $dir = z::realPath(z::arrayGet(self::$CONFIG, 'path'));
